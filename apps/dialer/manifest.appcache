@@ -1,9 +1,12 @@
 CACHE MANIFEST
-# Version 89aa87806aed361d8f49c977c02742ac
+# Version 684165e2c49cf8001b1c5273d5bab1cc
 background.html
+index-gaia.html
 index.html
 js/background.js
 js/contacts.js
+js/dialer-final.js
+js/dialer-gaia.js
 js/dialer.js
 js/helper.js
 js/notification_helper.js
@@ -13,6 +16,7 @@ js/settings_listener.js
 locale/dialer.properties
 
 manifest.webapp
+style/dialer-gaia.css
 style/dialer.css
 style/fonts/Open-Sans-Bold.woff
 style/fonts/Open-Sans-Semibold.woff
@@ -39,6 +43,9 @@ style/images/create.png
 style/images/current-tab.png
 style/images/delete.png
 style/images/diagonal-pattern.png
+style/images/dialer_icon_call.png
+style/images/dialer_icon_contact.png
+style/images/dialer_icon_delete.png
 style/images/dialing-pattern.png
 style/images/end-call-bg-active.png
 style/images/end-call-bg-large-active.png
@@ -66,6 +73,7 @@ style/images/speaker-icon-active.png
 style/images/speaker-icon.png
 style/images/star-off.png
 style/images/star-on.png
+style/images/unknown-contact.png
 style/ringtones/README
 style/ringtones/bosscaling.wav
 style/ringtones/classic.wav

@@ -236,6 +236,10 @@ var CallHandler = {
 
     this._telephonySetup = true;
 
+    // Somehow the muted property appears to true after initialization.
+    // Set it to false.
+    navigator.mozTelephony.muted = false;
+
     var telephony = navigator.mozTelephony;
     if (telephony.calls.length > 0) {
       var call = telephony.calls[0];
@@ -263,8 +267,9 @@ var CallHandler = {
 
     // var sanitizedNumber = number.replace(/-/g, '');
     // Force to unmute, since some phones are muted by default.
-    
-    window.navigator.mozTelephony.muted = false;
+    // window.navigator.mozTelephony.muted = false;
+    // The previous code has been moved to CallHandler.setupTelephony to avoid
+    // receiving a call and starting it in mute mode.
     var call = window.navigator.mozTelephony.dial(number);
     call.addEventListener('statechange', this);
     
@@ -273,6 +278,7 @@ var CallHandler = {
     // this.recentsEntry = {date: Date.now(), type: 'outgoing', number: number};
 
     // this.toggleCallScreen();
+
     CallUI.update(number);
     CallUI.render(0);
     CallUI.ui.show();
@@ -283,7 +289,12 @@ var CallHandler = {
     // this.callScreen.classList.remove('calling');
     // this.callScreen.classList.remove('in-call');
     // this.callScreen.classList.add('incoming');
-    window.navigator.mozTelephony.muted = false;
+
+    // Force to unmute, since some phones are muted by default.
+    // window.navigator.mozTelephony.muted = false;
+    // The previous code has been moved to CallHandler.setupTelephony to avoid
+    // receiving a call and starting it in mute mode.
+
     CallHandler.currentCall = call;
     call.addEventListener('statechange', this);
 
@@ -338,8 +349,11 @@ var CallHandler = {
 
   answer: function ch_answer() {
     
-    // // Force to unmute, since some phones are muted by default.
-    window.navigator.mozTelephony.muted = false;
+    // Force to unmute, since some phones are muted by default.
+    // window.navigator.mozTelephony.muted = false;
+    // The previous code has been moved to CallHandler.setupTelephony to avoid
+    // receiving a call and starting it in mute mode.
+
     CallHandler.currentCall.answer();
     
   },
